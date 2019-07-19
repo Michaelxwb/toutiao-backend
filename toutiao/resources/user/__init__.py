@@ -2,6 +2,9 @@ from flask import Blueprint
 from flask_restful import Api
 
 from . import passport, profile
+
+from . import passport
+
 # from . import following, channel, blacklist, profile, figure
 from utils.output import output_json
 
@@ -17,6 +20,7 @@ user_api.add_resource(passport.AuthorizationResource, '/v1_0/authorizations',
 
 user_api.add_resource(passport.ModifiyResource, '/v1_0/modify',
                       endpoint='Modifiy')
+
 #
 # user_api.add_resource(following.FollowingListResource, '/v1_0/user/followings',
 #                       endpoint='Followings')
@@ -45,8 +49,13 @@ user_api.add_resource(passport.ModifiyResource, '/v1_0/modify',
 # user_api.add_resource(profile.UserResource, '/v1_0/users/<int(min=1):target>',
 #                       endpoint='User')
 #
+
 user_api.add_resource(profile.CurrentUserResource, '/v1_0/user',
                       endpoint='CurrentUser')
+
+# user_api.add_resource(profile.CurrentUserResource, '/v1_0/user',
+#                       endpoint='CurrentUser')
+
 #
 # user_api.add_resource(profile.ProfileResource, '/v1_0/user/profile',
 #                       endpoint='Profile')
@@ -54,5 +63,9 @@ user_api.add_resource(profile.CurrentUserResource, '/v1_0/user',
 # user_api.add_resource(figure.FigureResource, '/v1_0/user/figure',
 #                       endpoint='Figure')
 #
+
 user_api.add_resource(profile.PhotoResource, '/v1_0/user/photo',
                       endpoint='Photo')
+
+# user_api.add_resource(profile.PhotoResource, '/v1_0/user/photo',
+#                       endpoint='Photo')

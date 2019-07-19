@@ -1,5 +1,7 @@
 from flask import request, g, make_response
 
+from flask import request, g
+
 from .jwt_util import verify_jwt
 
 

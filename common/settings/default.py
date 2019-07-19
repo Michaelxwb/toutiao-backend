@@ -50,6 +50,7 @@ class DefaultConfig(object):
     JWT_REFRESH_DAYS = 14
 
     # rpc
+
     class RPC:
         RECOMMEND = '127.0.0.1:8888'
         CHATBOT = '172.17.0.59:9999'
@@ -67,6 +68,11 @@ class DefaultConfig(object):
     QINIU_BUCKET_NAME = 'toutiao_python26'
     # 七牛云的域名 注意：需要添加/
     QINIU_DOMAIN = 'http://puk5hduo2.bkt.clouddn.com/'
+
+    QINIU_ACCESS_KEY = ''
+    QINIU_SECRET_KEY = ''
+    QINIU_BUCKET_NAME = ''
+    QINIU_DOMAIN = 'http://toutiao.meiduo.site/'
 
     RABBITMQ = 'amqp://python:rabbitmqpwd@localhost:5672/toutiao'
 

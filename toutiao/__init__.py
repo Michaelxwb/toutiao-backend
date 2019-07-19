@@ -60,7 +60,10 @@ def create_app(config, enable_config_file=False):
     app.redis_cluster = StrictRedisCluster(startup_nodes=app.config['REDIS_CLUSTER'])
 
     # rpc
+
     app.rpc_reco_channel = grpc.insecure_channel(app.config['RPC'].RECOMMEND)
+
+    # app.rpc_reco = grpc.insecure_channel(app.config['RPC'].RECOMMEND)
 
     # Elasticsearch
     app.es = Elasticsearch(
@@ -116,18 +119,22 @@ def create_app(config, enable_config_file=False):
 
     # 注册用户模块蓝图
     from .resources.user import user_bp
+
     app.register_blueprint(user_bp)
 
     # 注册新闻模块蓝图
     from .resources.news import news_bp
+
     app.register_blueprint(news_bp)
 
     # 注册通知模块
     from .resources.notice import notice_bp
+
     app.register_blueprint(notice_bp)
 
     # 搜索
     from .resources.search import search_bp
+
     app.register_blueprint(search_bp)
 
     return app

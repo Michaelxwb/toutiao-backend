@@ -52,6 +52,9 @@ class Article(db.Model):
     STATUS_ENUM = [0, 1, 2, 3]
 
     id = db.Column('article_id', db.Integer, primary_key=True, doc='文章ID')
+
+    id = db.Column('article_id', db.Integer, primary_key=True, doc='文章ID')
+
     user_id = db.Column(db.Integer, db.ForeignKey('user_basic.user_id'), doc='用户ID')
     channel_id = db.Column(db.Integer, db.ForeignKey('news_channel.channel_id'), doc='频道ID')
     title = db.Column(db.String, doc='标题')
@@ -81,6 +84,10 @@ class ArticleContent(db.Model):
 
     id = db.Column('article_id', db.Integer, db.ForeignKey('news_article_basic.article_id'), primary_key=True,
                    doc='文章ID')
+
+    id = db.Column('article_id', db.Integer, db.ForeignKey('news_article_basic.article_id'), primary_key=True,
+                   doc='文章ID')
+
     content = db.Column(db.Text, doc='帖文内容')
 
 
@@ -93,6 +100,10 @@ class ArticleStatistic(db.Model):
 
     id = db.Column('article_id', db.Integer, db.ForeignKey('news_article_basic.article_id'), primary_key=True,
                    doc='文章ID')
+
+    id = db.Column('article_id', db.Integer, db.ForeignKey('news_article_basic.article_id'), primary_key=True,
+                   doc='文章ID')
+
     read_count = db.Column(db.Integer, default=0, doc='阅读量')
     like_count = db.Column(db.Integer, default=0, doc='点赞量')
     dislike_count = db.Column(db.Integer, default=0, doc='不喜欢数')
